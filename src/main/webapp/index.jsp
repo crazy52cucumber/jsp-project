@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hello ttosjwi
+
+		Hello ttosjwi
+		<br/>
+		<a href="my_page.jsp">마이페이지</a>
+
 </body>
 </html>
