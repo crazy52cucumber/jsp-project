@@ -12,8 +12,8 @@
 
 
 Hello ttosjwi
-<br/>
-<a href="member/my_page.jsp">마이페이지</a>
+
+
 <div class="background-wrapper">
 
     <main>
@@ -23,6 +23,7 @@ Hello ttosjwi
                 아 홍보글이에요
             </section>
         </c:forEach>
+        <a href="/WEB-INF/jsp/member/my_page.jsp">마이페이지</a>
 
         <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
         <jsp:include page="/WEB-INF/jsp/common/bottom_menu.jsp"/>

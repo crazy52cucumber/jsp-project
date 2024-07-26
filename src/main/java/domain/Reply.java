@@ -1,7 +1,12 @@
 package domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.Date;
 
+@Setter
+@Getter
 public class Reply {
     private int replay_seq;
     private int rate;
@@ -21,59 +26,4 @@ public class Reply {
         this.valid = valid;
     }
 
-    public int getReplay_seq() {
-        return replay_seq;
-    }
-
-    public void setReplay_seq(int replay_seq) {
-        this.replay_seq = replay_seq;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Date getCdate() {
-        return cdate;
-    }
-
-    public void setCdate(Date cdate) {
-        this.cdate = cdate;
-    }
-
-    public int getMember_seq() {
-        return member_seq;
-    }
-
-    public void setMember_seq(int member_seq) {
-        this.member_seq = member_seq;
-    }
-
-    public int getBoard_seq() {
-        return board_seq;
-    }
-
-    public void setBoard_seq(int board_seq) {
-        this.board_seq = board_seq;
-    }
-
-    public int getValid() {
-        return valid;
-    }
-
-    public void setValid(int valid) {
-        this.valid = valid;
-    }
 }

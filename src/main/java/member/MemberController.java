@@ -6,6 +6,7 @@ import domain.Member;
 import domain.Reply;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
-//@WebServlet(/member/member.do)
+@WebServlet("/member/member.do")
 public class MemberController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class MemberController extends HttpServlet {
             request.setAttribute("member", member);
         }
 
-        String view = "my_page.jsp";
+        String view = "/WEB-INF/jsp/member/my_page.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
     }

@@ -6,4 +6,7 @@ class MemberSQL {
 
     final static String WITHDRAW
             = "update MEMBER set VALID= 1 where SEQ= ?";
+
+    final static String MY_REPLY
+            = "";
 }
