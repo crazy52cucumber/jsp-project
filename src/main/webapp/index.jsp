@@ -13,7 +13,7 @@
 
 Hello ttosjwi
 <br/>
-<a href="my_page.jsp">마이페이지</a>
+<a href="member/my_page.jsp">마이페이지</a>
 <div class="background-wrapper">
 
     <main>

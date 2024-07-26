@@ -1,5 +1,6 @@
 package member;
 
+import domain.Board;
 import domain.Book;
 import domain.Member;
 import domain.Reply;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
-//@WebServlet()
+//@WebServlet(/member/member.do)
 public class MemberController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -27,11 +28,14 @@ public class MemberController extends HttpServlet {
                 case "modify":
                     modify(request, response);
                     break;
-                case "withdraw": withdraw(request, response);
+                case "withdraw":
+                    withdraw(request, response);
                     break;
-                case "myReviewList": myReplyList(request, response);
+                case "myReviewList":
+                    myReplyList(request, response);
                     break;
-                case "myBookingList": myBookingList(request, response);
+                case "myBookingList":
+                    myBookingList(request, response);
                     break;
 
                 default:
@@ -68,7 +72,7 @@ public class MemberController extends HttpServlet {
         String name = member.getName();
         String nickname = request.getParameter("nickname");
         Date birth_day = member.getBirth_day();
-        Date  rdate = member.getRdate();
+        Date rdate = member.getRdate();
         int user_type = member.getUser_type();
         int valid = member.getValid();
         Member modifiedMember = new Member(member_seq, email, password, name, nickname, birth_day, rdate, user_type, valid);
@@ -86,7 +90,7 @@ public class MemberController extends HttpServlet {
 
         int member_seq = member.getSeq();
         boolean flag = false;
-        if(member_seq != -1L){
+        if (member_seq != -1L) {
             MemberService service = MemberService.getInstance();
             service.withdrawS(member_seq);
         }
@@ -106,37 +110,26 @@ public class MemberController extends HttpServlet {
         ArrayList<Reply> myReplyList = service.myReplyListS();
         request.setAttribute("myReplyList", myReplyList);
 
-        String view = "my_review_list.jsp";
+        String view = "my_reply_list.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
     }
 
     //예약 (중/ 취소/ 완료) //비동기 (검색 기능 / 라디오박스 같은 기능)
+    //예약, 보드 조인해서 강의 리스트
     private void myBookingList(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         Member member = (Member) session.getAttribute("member");
 
         MemberService service = MemberService.getInstance();
-        ArrayList<Book> myBookingList = service.myBookingListS();
+        ArrayList<Board> myBookingList = service.myBookingListS();
         request.setAttribute("myBookingList", myBookingList);
 
         String view = "my_booking_list.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
