@@ -106,9 +106,10 @@ public class MemberController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         Member member = (Member) session.getAttribute("member");
+        int member_seq = member.getSeq();
 
         MemberService service = MemberService.getInstance();
-        ArrayList<Reply> myReplyList = service.myReplyListS();
+        ArrayList<Reply> myReplyList = service.myReplyListS(member_seq);
         request.setAttribute("myReplyList", myReplyList);
 
         String view = "my_reply_list.jsp";
@@ -122,9 +123,9 @@ public class MemberController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         Member member = (Member) session.getAttribute("member");
-
+        int member_seq = member.getSeq();
         MemberService service = MemberService.getInstance();
-        ArrayList<Board> myBookingList = service.myBookingListS();
+        ArrayList<Board> myBookingList = service.myBookingListS(member_seq);
         request.setAttribute("myBookingList", myBookingList);
 
         String view = "my_booking_list.jsp";

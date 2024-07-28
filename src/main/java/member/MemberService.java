@@ -1,7 +1,6 @@
 package member;
 
 import domain.Board;
-import domain.Book;
 import domain.Member;
 import domain.Reply;
 
@@ -34,12 +33,12 @@ public class MemberService {
     }
 
 
-    public ArrayList<Reply> myReplyListS() {
-        return dao.myReplyList();
+    public ArrayList<Reply> myReplyListS(int member_seq) {
+        return dao.myReplyList(member_seq);
     }
 
-    public ArrayList<Board> myBookingListS() {
-        return dao.myBookingList();
+    public ArrayList<Board> myBookingListS(int member_seq) {
+        return dao.myBookingList(member_seq);
     }
 
 
